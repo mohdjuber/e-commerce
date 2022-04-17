@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from './Header';
+import TopWear from './components/TopWear';
+import BottomWear from './components/BottomWear';
+import Cosmetics from './components/Cosmetics';
+import FootWear from './components/FootWear';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/" exact component={TopWear} />
+        <Route path='/bottomwear' component={BottomWear} />
+        <Route path='/cosmetics' component={Cosmetics} />
+        <Route path='/footwear' component={FootWear} />
+      </Switch>
+    </Router>
   );
 }
 
